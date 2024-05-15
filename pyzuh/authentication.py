@@ -1,7 +1,7 @@
 import requests 
 import logging 
-import os 
 
+# Wazuh uses JWT for authentication. 
 def authenticate_wazuh(api_url: str, username: str, password: str) -> str:
     """
     Authenticate with the Wazuh API and obtain a JWT token.

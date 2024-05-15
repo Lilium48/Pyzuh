@@ -15,6 +15,4 @@ from .rules import *
 from .sca import * 
 from .security import *
 from .syscheck import * 
-from .syscollector import * 
 from .tasks import * 
-from .vulnerability import * 
