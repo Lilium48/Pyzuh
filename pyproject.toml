@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry]
+name = "pyzuh"
+version = "1.0.0"
+description = "Python Library for the Wazuh API"
+authors = ["austin@liliumsecurity.com"]
+license = "MIT"
+homepage = "https://github.com/Lilium48/pyzuh"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+requests = ">=2.31.0"
+pyjwt = ">=2.8.0"
+urllib3 = ">=2.2.0"
