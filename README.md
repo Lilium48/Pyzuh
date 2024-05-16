@@ -57,6 +57,7 @@ if __name__ == "__main__":
     run_scan_and_post_to_slack(wazuh_client, slack_webhook_url)
 ```
 ## Questions/Issues 
-If you have run into any issues, file an issue or email me at austin@liliumsecurity.com. 
+If you have run into any issues, file an issue or email me at austin@liliumsecurity.com.
 
+FAQ can be found here:  <a href="https://github.com/Lilium48/Pyzuh/blob/main/docs/faq.md">FAQ</a>
 
