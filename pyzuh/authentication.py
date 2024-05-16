@@ -1,15 +1,12 @@
-import requests 
-import logging 
+import os
+import requests
 
-# Wazuh uses JWT for authentication. 
-def authenticate_wazuh(api_url: str, username: str, password: str) -> str:
+def authenticate_wazuh(api_url: str) -> str:
     """
-    Authenticate with the Wazuh API and obtain a JWT token.
+    Authenticate with the Wazuh API and obtain a JWT token using credentials from environment variables.
 
     Parameters:
     - api_url (str): The base URL for the Wazuh API (e.g. "https://<HOST_IP>:55000").
-    - username (str): The username for basic authentication.
-    - password (str): The password for basic authentication.
 
     Returns:
     - str: The JWT token.
@@ -17,6 +14,12 @@ def authenticate_wazuh(api_url: str, username: str, password: str) -> str:
     Raises:
     - Exception: If the authentication request fails or the response is not as expected.
     """
+    # Read the username and password from environment variables
+    username = os.getenv("WAZUH_USERNAME")
+    password = os.getenv("WAZUH_PASSWORD")
+    if not username or not password:
+        raise Exception("WAZUH_USERNAME and WAZUH_PASSWORD environment variables are not set.")
+
     # Set the authentication URL
     auth_url = f"{api_url}/security/user/authenticate"
 
@@ -38,17 +41,13 @@ def authenticate_wazuh(api_url: str, username: str, password: str) -> str:
             else:
                 raise Exception("JWT token not found in the response data.")
         else:
-            # Log an error and raise an exception for non-200 status codes
-            logging.error(f"Authentication failed with status code {response.status_code}: {response.text}")
+            # Raise an exception for non-200 status codes
             response.raise_for_status()
     except Exception as e:
-        # Handle any other exceptions and log an error message
-        logging.error(f"An error occurred during authentication: {e}")
-        raise
+        # Handle any exceptions
+        raise Exception(f"Authentication failed: {e}")
 
 # Example usage:
 # api_url = "https://<HOST_IP>:55000"
-# username = "<YOUR_USERNAME>"
-# password = "<YOUR_PASSWORD>"
-# token = authenticate_wazuh(api_url, username, password)
+# token = authenticate_wazuh(api_url)
 # print("JWT Token:", token)
