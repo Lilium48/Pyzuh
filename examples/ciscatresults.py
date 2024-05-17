@@ -1,6 +1,6 @@
 import os
 from pyzuh import authenticate_wazuh
-from pyzuh import Ciscat  # Assuming your Ciscat class is in a file named ciscat.py
+from pyzuh import Ciscat 
 
 def set_credentials():
     """
