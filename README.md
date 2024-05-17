@@ -61,3 +61,4 @@ If you have run into any issues, file an issue or email me at austin@liliumsecur
 
 FAQ can be found here:  <a href="https://github.com/Lilium48/Pyzuh/blob/main/docs/faq.md">FAQ</a>
 
+Note: This is in the testing phase. I currently need to redploy my wazuh server in order to do better testing on this. If something doesn't work, I will be sure to update the code and create a new release. 
