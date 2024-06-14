@@ -3,7 +3,7 @@ Pyzuh is a python library for the Wazuh API. Inspired by Spotipy, Pyzuh's intend
 
 This can be found here: https://documentation.wazuh.com/current/user-manual/api/reference.html#section/Authentication
 
-Note: This library is written based on the current version at the time (Version 4.7). This sunsets the vulnerability section on the API. 
+Note: This library is written based on the current version at the time (Version 4.8). This sunsets the vulnerability section on the API. Note: 4.8 does not bring any notable changes to the API and by proxy Pyzuh. 
 
 ## How does Pyzuh work? 
 Wazuh (and thus Pyzuh) uses jwt to make requests. Each request has 2-4 parts: header, body (if needed), parameters, and json (also if needed). Each function has a docstring you can view to get a better idea of what you will need to change for your specific needs. 
